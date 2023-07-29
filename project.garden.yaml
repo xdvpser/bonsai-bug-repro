@@ -1,0 +1,23 @@
+apiVersion: garden.io/v1
+kind: Project
+name: root
+environments:
+  - name: local
+    varfile: env.yaml
+    defaultNamespace: default
+scan:
+  include:
+    - actions/**/*
+providers:
+  - name: local-kubernetes
+    environments: [local]
+    context: minikube
+    buildMode: cluster-buildkit
+    clusterBuildkit:
+      rootless: true
+    deploymentRegistry:
+      hostname: ${var.registry}
+      namespace: garden
+    imagePullSecrets:
+      - name: docker-registry-creds
+        namespace: ${environment.namespace}

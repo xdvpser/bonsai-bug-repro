@@ -1,0 +1,7 @@
+kind: Deploy
+type: exec
+name: exec
+spec:
+  deployCommand: [./deploy.sh]
+  statusCommand: [./status.sh]
+  cleanupCommand: [./cleanup.sh]

@@ -1,0 +1,7 @@
+kind: Build
+type: container
+name: my-container
+dependencies:
+  - deploy.exec
+include:
+  - Dockerfile
