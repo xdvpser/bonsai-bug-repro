@@ -10,7 +10,7 @@
     Just in case, enabled addons:
     storage-provisioner, default-storageclass, metrics-server, dashboard, ingress
 1. create k8s secret `docker-registry-creds` with ecr credentials
-1. run `garden build my-container`:
+1. run `garden deploy helloworld`:
 
-As `my-container` build action depends on `exec` deploy action, `exec` should be deployed first.
-However, garden just runs build without even touching `exec` action.
+In Garden v0.12, removing environment did not trigger building any Docker images.
+But in Garden v0.13, ALL Docker images are built before namespace is cleaned up.

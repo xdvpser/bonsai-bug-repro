@@ -1,6 +1,7 @@
 kind: Deploy
 type: exec
 name: exec
+disabled: true
 spec:
   deployCommand: [./deploy.sh]
   statusCommand: [./status.sh]

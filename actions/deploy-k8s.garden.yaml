@@ -1,0 +1,14 @@
+kind: Deploy
+type: helm
+name: helloworld
+dependencies:
+  - build.my-container
+spec:
+  releaseName: helloworld
+  chart:
+    path: helloworld/
+  atomic: false
+  values:
+    image:
+      repository: ${actions.build.my-container.outputs.deploymentImageName}
+      tag: ${actions.build.my-container.version}

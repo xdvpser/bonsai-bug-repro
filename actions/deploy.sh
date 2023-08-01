@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SRV="example-$RANDOM.txt"
+touch "example.txt"
 
-touch "$SRV"
-
-echo "Deployed $SRV"
+echo "Deployed example.txt"
